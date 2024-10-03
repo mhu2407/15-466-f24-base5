@@ -40,7 +40,7 @@ Load< Scene > phonebank_scene(LoadTagDefault, []() -> Scene const * {
 WalkMesh const *walkmesh = nullptr;
 Load< WalkMeshes > phonebank_walkmeshes(LoadTagDefault, []() -> WalkMeshes const * {
 	WalkMeshes *ret = new WalkMeshes(data_path("phone-bank.w"));
-	walkmesh = &ret->lookup("WalkMesh");
+	walkmesh = &ret->lookup("Plane");
 	return ret;
 });
 
@@ -140,7 +140,7 @@ void PlayMode::update(float elapsed) {
 	//player walking:
 	{
 		//combine inputs into a move:
-		constexpr float PlayerSpeed = 3.0f;
+		constexpr float PlayerSpeed = 10.0f;
 		glm::vec2 move = glm::vec2(0.0f);
 		if (left.pressed && !right.pressed) move.x =-1.0f;
 		if (!left.pressed && right.pressed) move.x = 1.0f;
